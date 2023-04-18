@@ -30,9 +30,11 @@ all_comb = quantity_of_combination(all1, take1) * quantity_of_combination(all2, 
 good_comb = 0
 
 for i in range(0, max_white):
-    good_comb += quantity_of_combination(white1,i) * quantity_of_combination(white2,max_white - i)
+    good_comb += quantity_of_combination(white1,i) * quantity_of_combination(all1 - white1,take1 - i) * quantity_of_combination(white2,max_white - i) * quantity_of_combination(all2 - white2, take2 - (max_white - i))
 
 result = probability(all_comb, good_comb)
 
 print(f'Всего исходов: {all_comb}, благоприятных исходов: {good_comb}, вероятность {max_white} белых мячей исходя из условий: {result}.')
 
+# for i in range(0, max_white):
+#    good_comb += quantity_of_combination(white1,i) * quantity_of_combination(white2,max_white - i)
