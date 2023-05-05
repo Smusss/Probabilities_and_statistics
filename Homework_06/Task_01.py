@@ -8,8 +8,9 @@ s = 16
 k = 0.95
 M = 80
 n = 256
+alpha = 1 - k
 
-interval_1 = M + stats.norm.ppf(k/2) * (s / math.sqrt(n))
-interval_2= M - stats.norm.ppf(k/2) * (s / math.sqrt(n))
+interval_1 = M + stats.norm.ppf(alpha/2) * (s / math.sqrt(n))
+interval_2= M - stats.norm.ppf(alpha/2) * (s / math.sqrt(n))
 
 print(f'Доверительный интервал: ({interval_1}, {interval_2})')

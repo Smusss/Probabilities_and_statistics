@@ -8,6 +8,7 @@ import scipy.stats as stats
 
 array_x = [6.9, 6.1, 6.2, 6.8, 7.5, 6.3, 6.4, 6.9, 6.7, 6.1]
 k = 0.95
+alpha = 1 - k
 
 M = np.mean(array_x)
 n = len(array_x)
@@ -16,7 +17,7 @@ for i in array_x:
     temp += pow(i - M, 2)
 s = math.sqrt(temp / (n-1))
 
-interval_1 = M + stats.t.ppf(k/2, df=n-1) * (s / math.sqrt(n))
-interval_2 = M - stats.t.ppf(k/2, df=n-1) * (s / math.sqrt(n))
+interval_1 = M + stats.t.ppf(alpha/2, df=n-1) * (s / math.sqrt(n))
+interval_2 = M - stats.t.ppf(alpha/2, df=n-1) * (s / math.sqrt(n))
 
 print(f'Доверительный интервал: ({interval_1}, {interval_2})')

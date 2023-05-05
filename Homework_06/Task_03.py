@@ -27,13 +27,14 @@ daughter = [175, 167, 154, 174, 178, 148, 160, 167, 169, 170]
 mother = [178, 165, 165, 173, 168, 155, 160, 164, 178, 175]
 k = 0.95
 
+alpha = 1 - k
 m_prop = work(daughter)
 d_prop = work(mother)
 
 M = m_prop[0] - d_prop[0]
 D = 0.5 * (m_prop[2] + d_prop[2])
 S = math.sqrt(D / m_prop[1] + D / d_prop[1])
-t = find_t(k, m_prop[1], d_prop[1])
+t = find_t(alpha, m_prop[1], d_prop[1])
 
 result_1 = M + t * S
 result_2 = M - t * S
